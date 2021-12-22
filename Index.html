@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Movie App</title>
+    <title>Imdb movies</title>
 </head>
 <body>
-    
     <header>
         <form  id="form" method="get" action="">
-            <div class="cover">
+            <h1>Time to find your favorite movies</h3>
+            <div class="container" onclick="myFunction(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div id="cover">
                 <div class="search-box">
                     <div class="td"><input type="text" placeholder="Search" required></div>
                     <div class="td" id="s-cover">
                         <button type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
+                            <div id="s-circle"></div>
+                            <span></span>
                         </button>
                     </div>
                 </div>
