@@ -10,74 +10,33 @@
 
 <body>
 	<header>
-		<form id="form" method="get" action="">
-			<h1>Time to find your favorite movies</h3>
-            <div class="container" onclick="myFunction(this)">
+        <div class="search-box">
+            <div><input type="text" placeholder="Search" required></div>    
+        </div>
+        <h1><strong>Time to find your favorite movies</strong> </h1>
+            <div class="bergerMenu" onclick="changeMenuIcon(this)">
                 <div class="bar1"></div>
                 <div class="bar2"></div>
                 <div class="bar3"></div>
                 <div class="menu">
-                    <ul>
-                        <li> <a class="menuLink" href="https://www.imdb.com/search/title/?genres=action&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=RNYMJA0H8TFB49TTBV8S&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_1" target="_blank">Action</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title/?genres=sci_fi&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_17" target="_blank">Sci/Fi</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title/?genres=history&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_11" target="_blank">History</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=comedy&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_5" target="_blank">Comedy</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=crime&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_6" target="_blank">Crime</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=drama&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_7" target="_blank">Drama</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=music&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_13" target="_blank">Music</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=romance&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_16" target="_blank">Romance</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=western&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_21" target="_blank">Western</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=war&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_20" target="_blank">War</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=family&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_8" target="_blank">Family</a></li>
-                        <li><a class="menuLink" href="https://www.imdb.com/search/title?genres=animation&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_3" target="_blank">Animation</a></li>                        
-                    </ul>
+                    
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title/?genres=action&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=RNYMJA0H8TFB49TTBV8S&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_1" target="_blank">Action</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title/?genres=sci_fi&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_17" target="_blank">Sci/Fi</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title/?genres=history&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_11" target="_blank">History</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=comedy&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_5" target="_blank">Comedy</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=crime&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_6" target="_blank">Crime</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=drama&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_7" target="_blank">Drama</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=music&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_13" target="_blank">Music</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=romance&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_16" target="_blank">Romance</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=western&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_21" target="_blank">Western</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=war&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_20" target="_blank">War</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=family&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_8" target="_blank">Family</a></li>
+                    <li><a class="genreMenuLink" href="https://www.imdb.com/search/title?genres=animation&sort=user_rating,desc&title_type=feature&num_votes=25000,&pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=5aab685f-35eb-40f3-95f7-c53f09d542c3&pf_rd_r=JSSY4HNJEBF94CS7P6Z7&pf_rd_s=right-6&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_gnr_3" target="_blank">Animation</a></li>                        
+                    
                 </div>                
             </div>
-            <div id="cover">
-                <div class="search-box">
-                    <div class="td"><input type="text" placeholder="Search" required></div>
-                    <div class="td" id="s-cover">
-                        <button type="submit">
-                            <div id="s-circle"></div>
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </form>
     </header>
-    <main id="main">
-        <div class="movie">
-            <img src="/Movie_1.jpg" alt="image">
-            <div class="movie-info">
-                <h3>movie title</h3>
-                <span class="green">9.8</span>
-            </div>
-            <div class="overwiew">
-                this title is not about movies it's just a example ...:) 
-            </div>
-        </div>
-        <div class="movie">
-            <img src="/Movie_1.jpg" alt="image">
-            <div class="movie-info">
-                <h3>movie title</h3>
-                <span class="green">9.8</span>
-            </div>
-            <div class="overwiew">
-                this title is not about movies it's just a example ...:) 
-            </div>
-        </div>
-        <div class="movie">
-            <img src="/Movie_1.jpg" alt="image">
-            <div class="movie-info">
-                <h3>movie title</h3>
-                <span class="green">9.8</span>
-            </div>
-            <div class="overwiew">
-                this title is not about movies it's just a example ...:) 
-            </div>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    <main id="main"></main>
+    <script src="script.js"></script> 
 </body>
 </html>
