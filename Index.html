@@ -5,13 +5,17 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="loading-spiner.css">
 	<title>Imdb movies</title>
 </head>
 
 <body>
-	<header>
+    <div id="loading-spiner">
+        <div id="loader"></div>    
+    </div>
+    <header>
         <div class="search-box">
-            <div><input type="text" placeholder="Search" required></div>    
+            <div><input type="text" placeholder="Search" ></div>    
         </div>
         <h1><strong>Time to find your favorite movies</strong> </h1>
             <div class="bergerMenu" onclick="changeMenuIcon(this)">

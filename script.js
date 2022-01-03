@@ -5,20 +5,19 @@ const IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 
 const MAIN = document.getElementById("main");
 
+loading();//loading spiner 
+
 FristPageMoevies(FIRST_PAGE_URL);
 
-function FristPageMoevies (firstPageUrl){
+async function FristPageMoevies (firstPageUrl){
+    const response = await fetch(firstPageUrl);
+    const movieData = await response.json();
+    showMovies(movieData.results);
 
-    fetch(firstPageUrl)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        showMovies(data.results);
-    })
 }
 
 function showMovies(moviesData){
-
+    
     moviesData.forEach(movie => { 
 
         const {original_title,poster_path,overview,vote_average} = movie;
@@ -50,3 +49,14 @@ function voteColor(vote) {
 function changeMenuIcon(x) {
     x.classList.toggle("change");
 }
+
+function loading (){
+    var loadSpiner =document.getElementById("loading-spiner");
+    window.addEventListener('load',function() {
+        loadSpiner.style.display = "none";
+
+    })
+}
+
+         
+    

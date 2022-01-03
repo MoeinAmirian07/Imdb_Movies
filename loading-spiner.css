@@ -1,0 +1,60 @@
+
+/*Loader 1- Spinning */
+
+
+#loading-spiner #loader{
+	position: absolute;
+    left:50%;
+    top: 50%;
+    height: 15vw;
+    width: 15vw;
+    margin: -10vw 0 0 -10vw; 
+    border: 3px solid transparent;
+    border-top-color: #3498db;
+    border-bottom-color: #3498db; 
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+    
+}
+
+#loading-spiner #loader:before{
+	content: "";
+    position: absolute;
+    top:2%;
+    bottom: 2%;
+    left: 2%;
+    right: 2%; 
+    border: 3px solid transparent;
+    border-top-color: #db213a;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+
+}
+
+#loading-spiner #loader:after{
+	content: "";
+    position: absolute;
+    top:5%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%; 
+    border: 3px solid transparent;
+    border-top-color: #dec52d;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+
+}
+
+/*Keyframes for spin animation */
+
+@keyframes spin {
+    0%  {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+    }
+    50% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+    }
+}

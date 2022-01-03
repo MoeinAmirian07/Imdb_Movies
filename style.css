@@ -19,7 +19,7 @@ body {
 header {
    border-radius: 10px;
    display: flex;
-   font-family: "Playfair Display";
+   font-family: "sora";
    height: 80px;
    background-color:var(--secondary-color);
    flex-direction:row;
@@ -29,7 +29,7 @@ header {
 h1 {
    color: var(--primary-color);
    font-family: "Sora";
-   font-size: 2.5rem;
+   font-size: 32px;
    align-self: center;}
 
 .search-box {
@@ -84,6 +84,8 @@ main {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   text-align: center;
+   font-size: 16px;
 }
 
 .movie {
@@ -148,6 +150,7 @@ main {
    max-height: 100%;
    transform: translateY(101%);
    transition: transform 0.3s ease-in;
+   opacity:0.9;
 }
 .movie:hover .overwiew {
    transform: translateY(0%);
@@ -227,3 +230,49 @@ main {
    position: absolute;
    background-color:var(--primary-color);
 }
+
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (min-width:320px)  {
+   .h1{
+      font-size: 16px;
+   }
+   .overwiew {
+      font-size: 16px;
+   }
+   .movie-info{
+      font-size: 16px;
+   }
+ }
+
+
+
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+@media (min-width:481px)  { 
+   .h1{
+      font-size: 16px;
+   }
+   .overwiew {
+      font-size: 16px;
+   }
+   .movie-info{
+      font-size: 18px;
+   }
+   
+ }
+
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (min-width:641px)  {  }
+
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media (min-width:961px)  {  }
+
+
+ /* big landscape tablets, laptops, and desktops */
+@media (min-width:1025px) { }
+
+
+ /* hi-res laptops and desktops */
+@media (min-width:1281px) { }
