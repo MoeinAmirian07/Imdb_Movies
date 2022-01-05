@@ -30,7 +30,9 @@ h1 {
    color: var(--primary-color);
    font-family: "Sora";
    font-size: 32px;
-   align-self: center;}
+   align-self: center;
+}
+
 
 .search-box {
    width:20%;
