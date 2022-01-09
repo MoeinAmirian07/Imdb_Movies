@@ -152,9 +152,24 @@ main {
    max-height: 100%;
    transform: translateY(101%);
    transition: transform 0.3s ease-in;
-   opacity:0.9;
+   opacity:0.85;
 }
 .movie:hover .overwiew {
+   transform: translateY(0%);
+}
+button{
+   background-color: var(--primary-color);
+   box-shadow: 1px 3px 2px  var(--secondary-color);
+   margin:2px;
+   padding: 3px;
+   border-radius: 6px;
+   transform: translateY(10%);
+   transition: transform 0.1s ease-in;
+   
+}
+button:hover{
+   
+   /* background-color:var(--primary-color); */
    transform: translateY(0%);
 }
 
@@ -278,3 +293,4 @@ main {
 
  /* hi-res laptops and desktops */
 @media (min-width:1281px) { }
+
