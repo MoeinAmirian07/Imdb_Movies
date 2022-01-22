@@ -4,33 +4,35 @@ const FIRST_PAGE_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + A
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 const GET_URL = BASE_URL + "/movie/";
 const FIND_URL = BASE_URL + "/find/";
+const FULL_CAST_URL = "https://imdb-api.com/en/API/FullCast/k_wirbdr79/";
+const TRAILER_URL = "https://imdb-api.com/en/API/Trailer/k_wirbdr79/";
 
 const MAIN = document.getElementById("main");
 const loading_spiner = document.getElementById("loading-spiner");
 const pop_up_window =document.getElementById('pop-up-window');
-var span = document.getElementsByClassName("close")[0];
 
 
 FristPageMoevies(FIRST_PAGE_URL);
 
 async function FristPageMoevies(firstPageUrl) {
+    
     const response = await fetch(firstPageUrl);
     const movieData = await response.json();
+
     chek_response(movieData, response.status);
-    // console.log(movieData.results);
 
 }
 
 function showMovies(moviesData) {
     moviesData.forEach(movie => {
-        const { original_title, poster_path, overview, vote_average , id} = movie;
 
+        const { original_title, poster_path, overview, vote_average , id} = movie;
         const moviePart = document.createElement('div');
 
         moviePart.classList.add("movie");
 
         moviePart.innerHTML = `
-        <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
+            <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
             <div class="movie-info">
                 <h3>${original_title}</h3>
                 <span class="${voteColor(vote_average)}">${vote_average}</span>
@@ -47,22 +49,68 @@ function showMovies(moviesData) {
 async function getMovieDetails(id){
     const response = await fetch(GET_URL + id + '?'+ API_KEY);//getting movies details from moviedb database
     const movieData_moviedb = await response.json();
-    const response_imdb = await fetch(FIND_URL + movieData_moviedb.imdb_id+'?'+API_KEY + '&external_source=imdb_id');//getting movies details from imdb database 
-    const movieDetail_imdb=await response_imdb.json();
-    
-    console.log(movieData_moviedb);
-    console.log(movieDetail_imdb);
+    const response_full_cast = await  fetch(FULL_CAST_URL + movieData_moviedb.imdb_id );
+    const fullCast = await response_full_cast.json();
+    const response_trailer = await fetch(TRAILER_URL+ movieData_moviedb.imdb_id)
+    const Trailer =await response_trailer.json() ;
+    buttonClicked(movieData_moviedb, fullCast,Trailer);
+
 } 
 
 
 
-function popupMoreInfo (){
+function popupMoreInfo (movieDetail, fullCast, trailer )  {
+    const { original_title, poster_path, overview, vote_average, genres, production_companies, spoken_languages, release_date} = movieDetail;
+    const {actors, directors, writers} = fullCast;
+    const{linkEmbed} = trailer
 
+    const writers_name =writers.items.map(writers =>{return writers.name});
+    const directors_name =directors.items.map(directors =>{return directors.name})
+    const actors_name =actors.map(actors =>{return actors.name});
+    const genres_name = genres.map(genres => {return genres.name});
+    const croduction_companies_name = production_companies.map(name => {return name.name});
+    const spoken_languages_name =spoken_languages.map(name => {return name.english_name});
 
+    pop_up_window.classList.add("popup");
+    pop_up_window.innerHTML = `
+        <div class="popup-title"><h3>${original_title}</h3></div>
+        <div class="popup-content">
+            <div class="popup-overwiew"> <p>Overwiew:</p>${overview}</div>
+            <div class="cast">
+                <p><strong>CAST</strong></p>
+                <p>Director/Directors:</p>${directors_name}
+                <p>Writers:</p>${writers_name}
+                <p>Actors:</p>${actors_name}
+            </div>
+            <div class="popup-genres__companies">
+                <p><strong>Other informations</strong></p>
+                <p>Genres:</p>${genres_name}
+                <p>release date:</p>${release_date}
+                <p>production companies:</p>${croduction_companies_name}
+                <p>spoken languages:</p>${spoken_languages_name}
+            </div>  
+            <div class="img_span">   
+                <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
+                <span class="${voteColor(vote_average)}"><p>Rating</p>${vote_average}</span>            
+            </div>
+            <iframe 
+                width="620" 
+                height="280" 
+                src="${linkEmbed}" 
+                referrerpolicy="no-referrer" 
+                allowfullscreen="true" 
+                scrolling="no" 
+                frameborder="0" 
+                >
+            </iframe>
+            
+            
+                
 
+        </div>
 
+    `
 }
-
 
 
 function buttonHandler(id) {
@@ -70,9 +118,7 @@ function buttonHandler(id) {
     getMovieDetails(id);
 }
 
-span.onclick = function() {
-    pop_up_window.style.display = "none";
-}
+
 
 window.onclick = function(event) {
     if (event.target == pop_up_window) {
@@ -101,14 +147,19 @@ function chek_response(movieData, response) {
         case 200:
             loading(false);
             showMovies(movieData.results);
-            break;
-        // case 500:
-        //     break;    
+            break;   
         default:
             loading(true);
             break;
     }
 
+}
+function buttonClicked(movieDetails,fullCast,trailer) {
+if (pop_up_window.style.display == "block") {
+
+    popupMoreInfo(movieDetails, fullCast, trailer);
+    
+}    
 }
 
 function loading(show) {
@@ -116,9 +167,6 @@ function loading(show) {
 }
 
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 
 

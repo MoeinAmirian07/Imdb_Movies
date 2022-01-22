@@ -113,8 +113,8 @@ main {
 .movie-info {
    color: #fff;
    display: flex;
-   align-items: center;
-   justify-content: space-between;
+   align-items: flex-start;
+   justify-content:space-between;
    padding: 0.5rem 1rem 1rem;
    letter-spacing: 0.2px;
 }
