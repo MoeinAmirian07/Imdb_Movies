@@ -99,7 +99,6 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
                 src="${linkEmbed}" 
                 referrerpolicy="no-referrer" 
                 allowfullscreen="true" 
-                scrolling="no" 
                 frameborder="0" 
                 >
             </iframe>
