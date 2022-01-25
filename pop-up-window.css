@@ -43,21 +43,40 @@
     color:var(--primary-color);
     padding: 2px;
   }
- .popup-genres__companies{
-   position:flex;
-   color: #fff;
-   overflow:scroll;
-   max-width: 30%;
-   max-height: 100%;
-   min-width:15%;
-   padding:2px;
-   
+ .otherInformation{
+    display:flex;
+    color: #fff;
+    flex-direction: column;
+    overflow-y:scroll;
+    overflow-x: hidden;
+    max-width: 30%;
+    max-height: 45%;
+    min-width:15%;
+    padding:2px;  
  }
- .popup-genres__companies::-webkit-scrollbar {
-  display: none;
+
+ .otherInformation::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
- .popup-genres__companies p{
-  display:absolute;
+.otherInformation::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(240, 243, 72, 0.1);
+}
+.otherInformation::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: rgba(240, 239, 175, 0.2);
+}
+.otherInformation::-webkit-scrollbar-thumb:hover{
+  background: rgba(231, 223, 102, 0.4);
+}
+.otherInformation::-webkit-scrollbar-thumb:active{
+  background: var(--primary-color);
+}
+ 
+ .otherInformation p{
+  display:flex;
+  justify-content: center;
   color:var(--primary-color);
   padding: 2px;
  }
@@ -85,14 +104,32 @@
 
 
 .cast{
-  overflow:scroll;
+  overflow-y:scroll;
+  overflow-x:hidden;
+  direction:ltr;
   font-family: "Sora";
   color: #fff;
   max-height:45%;
   max-width: 25%;
 }
 .cast::-webkit-scrollbar {
-  display: none;
+  direction:ltr;
+  width: 6px;
+  height: 6px;
+}
+.cast::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(240, 243, 72, 0.1);
+}
+.cast::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background: rgba(240, 239, 175, 0.2);
+}
+.cast::-webkit-scrollbar-thumb:hover{
+  background: rgba(231, 223, 102, 0.4);
+}
+.cast::-webkit-scrollbar-thumb:active{
+  background: var(--primary-color);
 }
 
 
@@ -133,19 +170,17 @@ span.orange {
 }
 .img_span img{
   position: flex;
-  height: 85%; 
+  height: 80%; 
   border-radius: 10px;
   padding: 3px;
   box-shadow:1px 2px var(--primary-color);
 
 }
-  
-iframe{
-  position:fixed;
+
+.popup-iframe{
+  width:860px; 
+  height:280px; 
+  position: fixed;
+  top: 59%;
   left: 12%;
-  top: 58%;
-  border-radius: 10px;
-  box-shadow:1px 2px var(--primary-color);
-  zoom: -200;
-}
- 
+} 

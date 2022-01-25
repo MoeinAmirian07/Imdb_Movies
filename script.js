@@ -55,6 +55,7 @@ async function getMovieDetails(id){
     const Trailer =await response_trailer.json() ;
     buttonClicked(movieData_moviedb, fullCast,Trailer);
 
+
 } 
 
 
@@ -64,12 +65,12 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
     const {actors, directors, writers} = fullCast;
     const{linkEmbed} = trailer
 
-    const writers_name =writers.items.map(writers =>{return writers.name});
-    const directors_name =directors.items.map(directors =>{return directors.name})
-    const actors_name =actors.map(actors =>{return actors.name});
-    const genres_name = genres.map(genres => {return genres.name});
-    const croduction_companies_name = production_companies.map(name => {return name.name});
-    const spoken_languages_name =spoken_languages.map(name => {return name.english_name});
+    const writers_name =writers.items.map(writers =>{return writers.name}).join(', ');
+    const directors_name =directors.items.map(directors =>{return directors.name}).join(', ');
+    const actors_name =actors.map(actors =>{return actors.name}).join(', ');
+    const genres_name = genres.map(genre =>{return genre.name}).join(', ');
+    const croduction_companies_name = production_companies.map(name => {return name.name}).join(', ');
+    const spoken_languages_name =spoken_languages.map(name => {return name.english_name}).join(', ');
 
     pop_up_window.classList.add("popup");
     pop_up_window.innerHTML = `
@@ -82,7 +83,7 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
                 <p>Writers:</p>${writers_name}
                 <p>Actors:</p>${actors_name}
             </div>
-            <div class="popup-genres__companies">
+            <div class="otherInformation">
                 <p><strong>Other informations</strong></p>
                 <p>Genres:</p>${genres_name}
                 <p>release date:</p>${release_date}
@@ -93,21 +94,19 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
                 <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
                 <span class="${voteColor(vote_average)}"><p>Rating</p>${vote_average}</span>            
             </div>
+        </div>
+        <div class="popup-iframe"
             <iframe 
-                width="620" 
-                height="280" 
                 src="${linkEmbed}" 
                 referrerpolicy="no-referrer" 
                 allowfullscreen="true" 
                 frameborder="0" 
+                scrolling="no"
+                autostart="0"
+                autoplay="0"
                 >
             </iframe>
-            
-            
-                
-
         </div>
-
     `
 }
 
@@ -153,6 +152,8 @@ function chek_response(movieData, response) {
     }
 
 }
+
+
 function buttonClicked(movieDetails,fullCast,trailer) {
 if (pop_up_window.style.display == "block") {
 
