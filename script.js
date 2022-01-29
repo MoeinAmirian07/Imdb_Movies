@@ -4,12 +4,17 @@ const FIRST_PAGE_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + A
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500/"
 const GET_URL = BASE_URL + "/movie/";
 const FIND_URL = BASE_URL + "/find/";
-const FULL_CAST_URL = "https://imdb-api.com/en/API/FullCast/k_wirbdr79/";
-const TRAILER_URL = "https://imdb-api.com/en/API/Trailer/k_wirbdr79/";
+const FULL_CAST_URL = "https://imdb-api.com/en/API/FullCast/k_sj5qfdxe/";
+const TRAILER_URL = "https://imdb-api.com/en/API/Trailer/k_sj5qfdxe/";
+const SEARCH_URL = BASE_URL + "/search/movie?" +API_KEY;
+
 
 const MAIN = document.getElementById("main");
 const loading_spiner = document.getElementById("loading-spiner");
 const pop_up_window =document.getElementById('pop-up-window');
+const SEARCH = document.getElementById("search");
+const FORM = document.getElementById("form");
+const BUTTON = document.getElementById("button");
 
 
 FristPageMoevies(FIRST_PAGE_URL);
@@ -24,6 +29,9 @@ async function FristPageMoevies(firstPageUrl) {
 }
 
 function showMovies(moviesData) {
+
+    MAIN.innerHTML = "";
+
     moviesData.forEach(movie => {
 
         const { original_title, poster_path, overview, vote_average , id} = movie;
@@ -38,7 +46,7 @@ function showMovies(moviesData) {
                 <span class="${voteColor(vote_average)}">${vote_average}</span>
             </div>
             <div class="overwiew">${overview}
-            <button id="moreInfoButton" onclick="buttonHandler(${id})">More info</button>
+            <button class="moreInfoButton" id="moreInfoButton" onclick="buttonHandler(${id})">More info</button>
             </div>
             `
         MAIN.appendChild(moviePart);
@@ -95,8 +103,9 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
                 <span class="${voteColor(vote_average)}"><p>Rating</p>${vote_average}</span>            
             </div>
         </div>
-        <div class="popup-iframe"
-            <iframe 
+            <iframe
+                width="860" 
+                height="280"  
                 src="${linkEmbed}" 
                 referrerpolicy="no-referrer" 
                 allowfullscreen="true" 
@@ -106,8 +115,8 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
                 autoplay="0"
                 >
             </iframe>
-        </div>
     `
+    MAIN.appendChild(pop_up_window);
 }
 
 
@@ -166,8 +175,13 @@ function loading(show) {
     loading_spiner.style.display = show ? "block" : "none";
 }
 
+FORM.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+    const search_popup = SEARCH.value;
+    if(search_popup){
+        FristPageMoevies(SEARCH_URL+"&query="+ search_popup);   
+    }
 
 
-
-
-
+})

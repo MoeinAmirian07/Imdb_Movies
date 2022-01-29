@@ -106,11 +106,12 @@
 .cast{
   overflow-y:scroll;
   overflow-x:hidden;
-  direction:ltr;
+  /* direction:ltr; */
   font-family: "Sora";
   color: #fff;
   max-height:45%;
   max-width: 25%;
+  
 }
 .cast::-webkit-scrollbar {
   direction:ltr;
@@ -176,10 +177,7 @@ span.orange {
   box-shadow:1px 2px var(--primary-color);
 
 }
-
-.popup-iframe{
-  width:860px; 
-  height:280px; 
+iframe{
   position: fixed;
   top: 59%;
   left: 12%;

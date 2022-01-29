@@ -16,10 +16,21 @@
     <div id="loading-spiner">
         <div id="loader"></div>    
     </div>
-    <header>
-        <div class="search-box">
-            <div><input type="text" placeholder="Search" ></div>    
+    <div id="pop-up-window" class="popup">
+        <div class="popup-content">
         </div>
+    </div>
+    <header>
+        <form id="form">
+            <div class="flexbox">
+                <div class="search">
+                    <div>
+                        <input id="search" type="text" placeholder="Search . . ." required>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button class="homeButton">HOME</button>
         <h1><strong>Time to find your favorite movies</strong> </h1>
             <div class="bergerMenu" onclick="changeMenuIcon(this)">
                 <div class="bar1"></div>
@@ -43,10 +54,7 @@
             </div>
     </header>
     <main id="main">
-        <div id="pop-up-window" class="popup">
-            <div class="popup-content">
-            </div>
-        </div>
+        
     </main>
     <script src="script.js"></script> 
 </body>
