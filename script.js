@@ -14,8 +14,6 @@ const loading_spiner = document.getElementById("loading-spiner");
 const pop_up_window =document.getElementById('pop-up-window');
 const SEARCH = document.getElementById("search");
 const FORM = document.getElementById("form");
-const BUTTON = document.getElementById("button");
-
 
 FristPageMoevies(FIRST_PAGE_URL);
 
@@ -77,6 +75,9 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
     const directors_name =directors.items.map(directors =>{return directors.name}).join(', ');
     const actors_name =actors.map(actors =>{return actors.name}).join(', ');
     const genres_name = genres.map(genre =>{return genre.name}).join(', ');
+    if (genres_name.includes("Action")) {
+        console.log("Moein is right");
+    }
     const croduction_companies_name = production_companies.map(name => {return name.name}).join(', ');
     const spoken_languages_name =spoken_languages.map(name => {return name.english_name}).join(', ');
 
@@ -185,3 +186,7 @@ FORM.addEventListener("submit",(e)=>{
 
 
 })
+
+function homeButton(){
+    FristPageMoevies(FIRST_PAGE_URL);
+}
