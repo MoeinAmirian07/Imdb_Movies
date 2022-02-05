@@ -68,7 +68,16 @@ h1 {
 }
 
 /* search box and input field*/
+h4 {
+   background-image: linear-gradient(to left, rgb(0, 0, 0),rgb(56, 59, 55));
+   font-family: "Sora";
+   font-size: 32px;
+   padding: 13px;
+   border-radius: 10px;
+   color: var(--primary-color);
+   box-shadow: 0px 20px 20px black; 
 
+}
 .flexbox {
    display:flex;
    width: 20%;

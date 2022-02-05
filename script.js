@@ -109,9 +109,11 @@ async function FristPageMoevies(firstPageUrl) {
     
     const response = await fetch(firstPageUrl);
     const movieData = await response.json();
-
-    chek_response(movieData, response.status);
-
+    if(movieData.results.length !== 0){
+    chek_response(movieData, response.status);   
+    }else{
+        MAIN.innerHTML = `<h4>No Results Found</h4>`
+    }
 }
 
 function showMovies(moviesData) {
@@ -270,6 +272,8 @@ FORM.addEventListener("submit",(e)=>{
     const search_popup = SEARCH.value;
     if(search_popup){
         FristPageMoevies(SEARCH_URL+"&query="+ search_popup);   
+    }else{
+        MAIN.innerHTML = `<h4>No Result Found</h4>`
     }   
 
 
