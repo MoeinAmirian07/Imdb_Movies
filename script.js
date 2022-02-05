@@ -14,6 +14,95 @@ const loading_spiner = document.getElementById("loading-spiner");
 const pop_up_window =document.getElementById('pop-up-window');
 const SEARCH = document.getElementById("search");
 const FORM = document.getElementById("form");
+const genreEl = document.getElementById("genre");
+const GENRES = [
+    {
+    "id": 28,
+    "name": "Action"
+    },
+    {
+    "id": 16,
+    "name": "Animation"
+    },
+    {
+    "id": 35,
+    "name": "Comedy"
+    },
+    {
+    "id": 80,
+    "name": "Crime"
+    },
+    {
+    "id": 18,
+    "name": "Drama"
+    },
+    {
+    "id": 10751,
+    "name": "Family"
+    },
+    {
+    "id": 36,
+    "name": "History"
+    },
+    {
+    "id": 27,
+    "name": "Horror"
+    },
+    {
+    "id": 10402,
+    "name": "Music"
+    },
+    {
+    "id": 9648,
+    "name": "Mystery"
+    },
+    {
+    "id": 10749,
+    "name": "Romance"
+    },
+    {
+    "id": 878,
+    "name": "Science Fiction"
+    },
+    {
+    "id": 37,
+    "name": "Western"
+    }
+    ]
+    
+
+var selectedGenres = [];    
+
+setGener();
+function setGener(){
+    genreEl.innerHTML = "";
+
+    GENRES.forEach(gener =>{
+        const generDisplay = document.createElement("div");
+        generDisplay.classList.add("geners_style"); 
+        generDisplay.id = gener.id ;
+        generDisplay.innerText = gener.name;
+        generDisplay.addEventListener("click", ()=>{
+            if(selectedGenres.length == 0){
+                selectedGenres.push(gener.id);
+            }else{
+                if(selectedGenres.includes(gener.id)){
+                    selectedGenres.forEach((id,idx) => {
+                        if(id == gener.id){
+                            selectedGenres.splice(idx, 1);
+                        }
+                    })
+                }else{
+                    selectedGenres.push(gener.id);
+                }
+            }
+            console.log(selectedGenres);
+
+        })
+        genreEl.append(generDisplay);
+    } )
+
+}    
 
 FristPageMoevies(FIRST_PAGE_URL);
 
@@ -182,11 +271,12 @@ FORM.addEventListener("submit",(e)=>{
     const search_popup = SEARCH.value;
     if(search_popup){
         FristPageMoevies(SEARCH_URL+"&query="+ search_popup);   
-    }
+    }   
 
 
 })
 
 function homeButton(){
     FristPageMoevies(FIRST_PAGE_URL);
+    
 }

@@ -284,7 +284,7 @@ main {
    font-family: "Sora";
 
 }
-.genres_list a {
+.genres_list .geners_style{
    color: var(--primary-color);
    padding: 10px;
    margin: 5px;
@@ -302,9 +302,10 @@ main {
    font-size: 16px;
    font-family: "Sora";
    align-items: center;
+   cursor: pointer;
 
  }
-.genres_list a:hover {
+.genres_list .geners_style:hover {
    background: var(--primary-color);
    transform: translateY(0%);
    color: rgb(8, 8, 8);
