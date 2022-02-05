@@ -70,9 +70,8 @@ const GENRES = [
     }
     ]
     
-
+FristPageMoevies(FIRST_PAGE_URL);
 var selectedGenres = [];    
-
 setGener();
 function setGener(){
     genreEl.innerHTML = "";
@@ -96,15 +95,15 @@ function setGener(){
                     selectedGenres.push(gener.id);
                 }
             }
-            console.log(selectedGenres);
+            FristPageMoevies(FIRST_PAGE_URL + "&with_genres=" + encodeURI( selectedGenres.join(",")));
+            highlight();
 
         })
         genreEl.append(generDisplay);
     } )
 
-}    
+}
 
-FristPageMoevies(FIRST_PAGE_URL);
 
 async function FristPageMoevies(firstPageUrl) {
     
@@ -127,7 +126,7 @@ function showMovies(moviesData) {
         moviePart.classList.add("movie");
 
         moviePart.innerHTML = `
-            <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
+            <img src="${poster_path? IMAGE_URL + poster_path: "http://via.placeholder.com/1080x1580"}" alt="${original_title}">
             <div class="movie-info">
                 <h3>${original_title}</h3>
                 <span class="${voteColor(vote_average)}">${vote_average}</span>
@@ -279,4 +278,16 @@ FORM.addEventListener("submit",(e)=>{
 function homeButton(){
     FristPageMoevies(FIRST_PAGE_URL);
     
+}
+function highlight(){
+    const genres = document.querySelectorAll(".genres_list .geners_style");
+    genres.forEach(genre =>{
+        genre.classList.remove("highlight");
+    })
+    if(selectedGenres.length != 0){
+        selectedGenres.forEach(id =>{
+            const highlight = document.getElementById(id);
+            highlight.classList.add("highlight");
+        })
+    }
 }

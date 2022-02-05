@@ -230,6 +230,7 @@ main {
    border-radius: 6px;
    transform: translateY(10%);
    transition: transform 0.2s ease-in;
+   cursor: pointer;
    
 }
 .moreInfoButton:hover{
@@ -318,5 +319,12 @@ main {
  .dropdown:hover .genres_button {
    background-color: var(--primary-color);
  }
+
+
+ .genres_list .highlight {
+   background-image: linear-gradient(to right, rgb(229, 81, 23),var(--primary-color));
+   /* background-color: cadetblue; */
+   color: #000;
+}
 
 
