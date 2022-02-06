@@ -165,9 +165,6 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
     const directors_name =directors.items.map(directors =>{return directors.name}).join(', ');
     const actors_name =actors.map(actors =>{return actors.name}).join(', ');
     const genres_name = genres.map(genre =>{return genre.name}).join(', ');
-    if (genres_name.includes("Action")) {
-        console.log("Moein is right");
-    }
     const croduction_companies_name = production_companies.map(name => {return name.name}).join(', ');
     const spoken_languages_name =spoken_languages.map(name => {return name.english_name}).join(', ');
 
@@ -266,12 +263,12 @@ function loading(show) {
     loading_spiner.style.display = show ? "block" : "none";
 }
 
-FORM.addEventListener("submit",(e)=>{
+FORM.addEventListener("submit",(search)=>{
 
-    e.preventDefault();
-    const search_popup = SEARCH.value;
-    if(search_popup){
-        FristPageMoevies(SEARCH_URL+"&query="+ search_popup);   
+    search.preventDefault();
+    const search_first_page = SEARCH.value;
+    if(search_first_page){
+        FristPageMoevies(SEARCH_URL+"&query="+ search_first_page);   
     }else{
         MAIN.innerHTML = `<h4>No Result Found</h4>`
     }   
