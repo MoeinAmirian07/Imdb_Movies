@@ -82,6 +82,7 @@ function setGener(){
         generDisplay.id = gener.id ;
         generDisplay.innerText = gener.name;
         generDisplay.addEventListener("click", ()=>{
+            loading(true);
             if(selectedGenres.length == 0){
                 selectedGenres.push(gener.id);
             }else{
@@ -113,6 +114,7 @@ async function FristPageMoevies(firstPageUrl) {
     chek_response(movieData, response.status);   
     }else{
         MAIN.innerHTML = `<h4>No Results Found</h4>`
+        loading(false);
     }
 }
 
@@ -188,21 +190,23 @@ function popupMoreInfo (movieDetail, fullCast, trailer )  {
             </div>  
             <div class="img_span">   
                 <img src="${IMAGE_URL + poster_path}" alt="${original_title}">
-                <span class="${voteColor(vote_average)}"><p>Rating</p>${vote_average}</span>            
+                <span class="${voteColor(vote_average)}"><p>Rating</p>${vote_average}</span>
+                </div>
+                <iframe
+                    width="860" 
+                    height="280"
+                    class="iframe-popup"
+                    src="${linkEmbed}" 
+                    referrerpolicy="no-referrer" 
+                    allowfullscreen="true" 
+                    frameborder="0" 
+                    scrolling="on"
+                    autostart="0"
+                    autoplay="0"
+                    >
+                </iframe>            
             </div>
-        </div>
-            <iframe
-                width="860" 
-                height="280"  
-                src="${linkEmbed}" 
-                referrerpolicy="no-referrer" 
-                allowfullscreen="true" 
-                frameborder="0" 
-                scrolling="no"
-                autostart="0"
-                autoplay="0"
-                >
-            </iframe>
+        
     `
     MAIN.appendChild(pop_up_window);
 }
@@ -268,9 +272,11 @@ FORM.addEventListener("submit",(search)=>{
     search.preventDefault();
     const search_first_page = SEARCH.value;
     if(search_first_page){
+        loading(true);
         FristPageMoevies(SEARCH_URL+"&query="+ search_first_page);   
     }else{
         MAIN.innerHTML = `<h4>No Result Found</h4>`
+        loading(false);
     }   
 
 
@@ -292,3 +298,4 @@ function highlight(){
         })
     }
 }
+      
